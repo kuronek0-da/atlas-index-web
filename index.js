@@ -59,7 +59,7 @@ function populateTable(rows) {
     tbody.innerHTML = rows.map((r, i) => {
         return `
         <tr>
-          <td>#</td>
+          <td>${i + 1}</td>
           <td>${r.player.discord_username}</td>
           <td>${r.character}</td>
           <td>${r.moon}</td>
@@ -68,6 +68,7 @@ function populateTable(rows) {
         </tr>`;
     }).join('');
 }
+
 
 // init
 fetch_players();

@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
+
+    <style>
+        body {
+            font-family: system-ui, Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 40px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            margin-top: 25px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 600px;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        thead {
+            background: #2f3b52;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background: #e6edf7;
+        }
+
+        th {
+            font-weight: 600;
+        }
+
+        td:last-child {
+            font-weight: 600;
+        }
+    </style>
+
 </head>
+
 <body>
+
     <h1>Atlas Index</h1>
     <hr>
+
     <h3>Leaderboard</h3>
+
     <div>
         <table id="players-table">
             <thead>
@@ -21,10 +76,15 @@
                     <th>Elo</th>
                 </tr>
             </thead>
+
             <tbody id="table-body">
             </tbody>
+
         </table>
     </div>
+
     <script src="index.js"></script>
+
 </body>
+
 </html>
