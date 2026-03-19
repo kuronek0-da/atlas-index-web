@@ -1,4 +1,4 @@
-const API_BASE = "https://atlas-index-server-production.up.railway.app";
+const API_BASE = "http://localhost:8080";
 
 let allRatings;
 async function fetch_players() {
@@ -19,19 +19,18 @@ async function fetch_players() {
     }
     populateTable(allRatings);
 }
-
 /*
-{
-    "id": 4,
-    "player": {
-      "discord_username": "Player C"
-    },
-    "character": "AOKO",
+ * {
+    "id": 1,
+    "player_id": 2,
+    "discord_username": "mariofeeh",
+    "character": "AKIHA",
     "moon": "HALF",
-    "elo": 1031,
-    "games_played": 2
+    "elo": 1044,
+    "games_played": 3,
+    "wins": 3
   }
-*/
+ * */
 function mockData() {
     const chars = ["Akiha", "Ciel", "Nero", "Arcueid"];
     const moons = ["Crescent", "Half", "Full"];
@@ -60,7 +59,7 @@ function populateTable(rows) {
         return `
         <tr>
           <td>${i + 1}</td>
-          <td>${r.player.discord_username}</td>
+          <td>${r.discord_username}</td>
           <td>${r.character}</td>
           <td>${r.moon}</td>
           <td>${r.games_played ?? '—'}</td>

@@ -1,90 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #f0f2f5;
+            --surface: #ffffff;
+            --header-bg: #1e2d40;
+            --header-text: #e8edf3;
+            --accent: #4a7fcb;
+            --text: #1a2333;
+            --text-muted: #6b7a90;
+            --border: #e2e7ee;
+            --row-alt: #f7f9fc;
+            --row-hover: #edf2fb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: system-ui, Arial, sans-serif;
-            background: #f4f6f8;
-            margin: 40px;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 56px 20px;
+            color: var(--text);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+        }
+
+        .header {
+            margin-bottom: 32px;
         }
 
         h1 {
-            margin-bottom: 5px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            color: var(--text);
+            margin-bottom: 6px;
         }
 
-        h3 {
-            margin-top: 25px;
+        .subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, var(--accent), transparent);
+            border: none;
+            margin: 16px 0 28px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .table-wrapper {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         table {
             border-collapse: collapse;
-            width: 600px;
-            background: white;
-        }
-
-        th,
-        td {
-            padding: 8px 12px;
-            text-align: left;
+            width: 100%;
+            background: var(--surface);
         }
 
         thead {
-            background: #2f3b52;
-            color: white;
-        }
-
-        tbody tr:nth-child(even) {
-            background: #f2f2f2;
-        }
-
-        tbody tr:hover {
-            background: #e6edf7;
+            background: var(--header-bg);
         }
 
         th {
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 0.72rem;
             font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--header-text);
+            opacity: 0.85;
+        }
+
+        td {
+            padding: 11px 16px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) td {
+            background: var(--row-alt);
+        }
+
+        tbody tr:hover td {
+            background: var(--row-hover);
+        }
+
+        td:first-child {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         td:last-child {
             font-weight: 600;
+            color: var(--accent);
         }
     </style>
-
 </head>
-
 <body>
-
-    <h1>Atlas Index</h1>
-    <hr>
-
-    <h3>Leaderboard</h3>
-
-    <div>
-        <table id="players-table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Player</th>
-                    <th>Character</th>
-                    <th>Moon</th>
-                    <th>Games</th>
-                    <th>Elo</th>
-                </tr>
-            </thead>
-
-            <tbody id="table-body">
-            </tbody>
-
-        </table>
+    <div class="container">
+        <div class="header">
+            <h1>Atlas Index</h1>
+            <p class="subtitle">Rankings &amp; Stats</p>
+        </div>
+        <hr class="divider">
+        <p class="section-label">Leaderboard</p>
+        <div class="table-wrapper">
+            <table id="players-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Player</th>
+                        <th>Character</th>
+                        <th>Moon</th>
+                        <th>Games</th>
+                        <th>Elo</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
     </div>
-
     <script src="index.js"></script>
-
 </body>
-
 </html>
