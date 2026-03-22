@@ -3,7 +3,7 @@ const API_BASE = "https://atlas-index-server-production.up.railway.app";
 let allRatings;
 async function fetch_players() {
     try {
-        const response = await fetch(`${API_BASE}/api/rank`, {
+        const response = await fetch(`${API_BASE}/api/ranking`, {
             headers: {
                 "Content-Type": "application/json",
             },
